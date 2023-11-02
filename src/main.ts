@@ -1,6 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { AppDataSource } from './shared/config/databaseConfig';
+import properties from './shared/common/constants/properties';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -9,6 +10,6 @@ async function bootstrap() {
       console.log('Connected to database!');
     })
     .catch((error) => console.log(error));
-  await app.listen(3000);
+  await app.listen(properties.PORT);
 }
 bootstrap();
